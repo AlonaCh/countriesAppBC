@@ -9,6 +9,8 @@ import Home from "./routes/Home";
 import Root from "./routes/Root";
 import store from "./stores/store";
 import { Provider } from "react-redux";
+import Favourites from "./routes/favourites";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const theme = createTheme({
   palette: {
@@ -39,6 +41,10 @@ function App() {
           path: "countries/:single",
           element: <CountriesSingle />,
         },
+        {
+          path:"/favourites",
+          element: <Favourites/>
+        }
       ],
     },
   ]);
