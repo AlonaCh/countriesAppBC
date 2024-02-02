@@ -7,6 +7,8 @@ import Countries from "./routes/Countries";
 import CountriesSingle from "./routes/CountriesSingle";
 import Home from "./routes/Home";
 import Root from "./routes/Root";
+import store from "./stores/store";
+import { Provider } from "react-redux";
 
 const theme = createTheme({
   palette: {
@@ -42,11 +44,13 @@ function App() {
   ]);
 
   return (
+    <Provider store={store}>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <ThemeProvider theme={theme}>
         <RouterProvider router={router}></RouterProvider>
       </ThemeProvider>
     </LocalizationProvider>
+    </Provider>
   );
 }
 
