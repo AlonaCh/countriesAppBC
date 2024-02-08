@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Spinner } from "react-bootstrap";
@@ -10,6 +10,9 @@ import Row from "react-bootstrap/Row";
 import { useDispatch, useSelector } from "react-redux";
 import { initializeCountries } from "../store/countriesSlice";
 import { addFavourite } from "../store/favouritesSlice";
+import Form from 'react-bootstrap/Form';
+
+const [search, setSearch] = useState("");
 
 const Countries = () => {
   const dispatch = useDispatch();
@@ -19,6 +22,10 @@ const Countries = () => {
   const countriesList = useSelector((state)=> state.countries.countries);
   const loading = useSelector((state) =>state.countries.isLoading);
 
+
+  function searchHandler(event) {
+    setSearch(event.target.value.toLowerCase());
+  }
 
   useEffect(() => {
     dispatch(initializeCountries());
@@ -40,9 +47,13 @@ const Countries = () => {
   }
 
   return (
+    <>
+    <Form.Control type="tex" placeholder="Search..." onChange={searchHandler}/>
+
     <Container fluid>
       <Row xs={2} md={3} lg={4} className=" g-3">
-        {countriesList.map((country) => (
+        {countriesList.filter((country) => country.name.common.toLowerCase().includes(search.toLowerCase()))
+        .map((country) => (
           <Col key={country.name.official} className="mt-5">
             <Card className="h-100">
               <FavoriteIcon
@@ -88,6 +99,7 @@ const Countries = () => {
         ))}
       </Row>
     </Container>
+    </>
   );
 };
 
