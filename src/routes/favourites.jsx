@@ -1,5 +1,5 @@
 import { useEffect } from "react";
- 
+
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -7,17 +7,17 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import { useDispatch, useSelector } from "react-redux";
 import { initializeCountries } from "../store/countriesSlice";
- 
+
 const Favourites = () => {
   const dispatch = useDispatch();
- 
+
   const favourites = useSelector((state) => state.favourites.favourites);
- 
+
   // TODO: Implement logic to retrieve favourites later.
   useEffect(() => {
     dispatch(initializeCountries());
   }, [dispatch]);
- 
+
   return (
     <Container fluid>
       <Row xs={2} md={3} lg={4} className=" g-3">
@@ -65,5 +65,5 @@ const Favourites = () => {
     </Container>
   );
 };
- 
+
 export default Favourites;
