@@ -11,11 +11,11 @@
     "server": "json-server -p3000 --watch data.json"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
+    "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
     "@mui/icons-material": "^5.15.0",
-    "@mui/material": "^5.15.0",
+    "@mui/material": "^5.15.9",
     "@mui/x-date-pickers": "^6.18.5",
     "@reduxjs/toolkit": "^2.1.0",
     "axios": "^1.6.2",

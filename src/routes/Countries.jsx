@@ -45,26 +45,24 @@ const Countries = () => {
         {countriesList.map((country) => (
           <Col key={country.name.official} className="mt-5">
             <Card className="h-100">
-            <i
-                className="bi bi-heart-fill text-danger m-1 p-1"
-                onClick={() => dispatch(addFavourite(country.name.common))}
+              <FavoriteIcon
+                color="red"
+                onClick={() => dispatch(addFavourite(country))}
               />
               <Card.Img
                 variant="top"
-                className="rounded h-50"  
-                
+                className="rounded h-50"
                 src={country.flags.svg}
                 style={{
                   objectFit: "cover",
                   minHeight: "200px",
                   maxHeight: "200px",
-            
                 }}
               />
               <Card.Body className="d-flex flex-column">
                 <Card.Title>{country.name.common}</Card.Title>
                 <Card.Subtitle className="mb-5 text-muted">
-                {country.name.official}
+                  {country.name.official}
                 </Card.Subtitle>
                 <ListGroup
                   variant="flush"
@@ -72,7 +70,7 @@ const Countries = () => {
                 >
                   <ListGroup.Item>
                     <i className="bi bi-translate me-2"></i>
-                    {Object.values(country.languages ?? {}).join(', ')}
+                    {Object.values(country.languages ?? {}).join(", ")}
                   </ListGroup.Item>
                   <ListGroup.Item>
                     <i className="bi bi-cash-coin me-2"></i>

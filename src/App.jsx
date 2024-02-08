@@ -7,10 +7,10 @@ import Countries from "./routes/Countries";
 import CountriesSingle from "./routes/CountriesSingle";
 import Home from "./routes/Home";
 import Root from "./routes/Root";
-import store from "./stores/store";
+import store from "./store/store";
 import { Provider } from "react-redux";
 import Favourites from "./routes/favourites";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+
 
 const theme = createTheme({
   palette: {
