@@ -1,5 +1,5 @@
-
 import { useEffect } from "react";
+
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Spinner } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
@@ -7,9 +7,9 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
-import { useDispatch } from "react-redux";
-import { initializeCountries } from "../stores/countriesSlice";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { initializeCountries } from "../store/countriesSlice";
+import { addFavourite } from "../store/favouritesSlice";
 
 const Countries = () => {
   const dispatch = useDispatch();
