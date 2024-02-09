@@ -1,13 +1,13 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, addDoc, collection } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    apiKey: "AIzaSyCYdjywCESulR8LJzi5ZzxfE8dRDSAoEOc",
     authDomain: "countries-6cd83.firebaseapp.com",
     projectId: "countries-6cd83",
     storageBucket: "countries-6cd83.appspot.com",
@@ -16,19 +16,21 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 //here we get access to the project authentification and database
 const auth = getAuth(app);
 const db = getFirestore(app);
 
 //it takes time to gets to the external server, so we export it as a promise. We need async
-const registerWithEmailAndPassword = async (email, password) => {
+const registerWithEmailAndPassword = async (name, email, password) => {
     try {
         const res = await createUserWithEmailAndPassword(auth, email, password) //it is a google function
         const user = res.user;
+        //in the collection of users create a new document with the user id, name, email and authProvider
         await addDoc(collection(db, "users"), {
             uid: user.uid,
+            name,
             authProvider: "local",
             email,
         })
@@ -37,5 +39,17 @@ const registerWithEmailAndPassword = async (email, password) => {
         alert(error.message)
     }
 }
+export const loginWithEmailAndPassword = async (email, password) => {
+    try {
+        const res = await signInWithEmailAndPassword(auth, email, password);
 
+    } catch (error) {
+        console.log(error.message)
+        alert(error.message)
+    }
+}
+export const logout = () => {
+    auth.signOut()
+
+}
 export { auth, db, registerWithEmailAndPassword } //we export the function to use it in the component

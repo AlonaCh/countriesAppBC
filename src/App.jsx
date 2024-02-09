@@ -10,6 +10,8 @@ import Root from "./routes/Root";
 import store from "./store/store";
 import { Provider } from "react-redux";
 import Favourites from "./routes/favourites";
+import Register from "./routes/Register";
+import Login from "./routes/Login";
 
 
 const theme = createTheme({
@@ -44,6 +46,14 @@ function App() {
         {
           path:"/favourites",
           element: <Favourites/>
+        },
+        {
+          path:"/register",
+          element: <Register/>
+        },
+        {
+          path:"/login",
+          element: <Login/>
         }
       ],
     },
