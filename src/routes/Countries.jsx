@@ -12,13 +12,15 @@ import { initializeCountries } from "../store/countriesSlice";
 import { addFavourite } from "../store/favouritesSlice";
 import Form from 'react-bootstrap/Form';
 
-const [search, setSearch] = useState("");
+
 
 const Countries = () => {
   const dispatch = useDispatch();
 
   //Connect Countries.jsx to store and replace the countriesList and loading with values from redux.
   //to acces the store
+  const [search, setSearch] = useState("");
+
   const countriesList = useSelector((state)=> state.countries.countries);
   const loading = useSelector((state) =>state.countries.isLoading);
 
@@ -30,6 +32,12 @@ const Countries = () => {
   useEffect(() => {
     dispatch(initializeCountries());
   }, [dispatch]); //call the function once when the component is mounted
+
+
+  // useEffect(() => {
+  //   console.log(search);
+  // }, [search]); //everytime search changes console.log will run
+
 
   if (loading) {
     return (
@@ -48,11 +56,15 @@ const Countries = () => {
 
   return (
     <>
-    <Form.Control type="tex" placeholder="Search..." onChange={searchHandler}/>
 
     <Container fluid>
+      <Row>
+    <Form.Control size="lg" type="tex" placeholder="Search..." onChange={searchHandler}/>
+    </Row>
       <Row xs={2} md={3} lg={4} className=" g-3">
-        {countriesList.filter((country) => country.name.common.toLowerCase().includes(search.toLowerCase()))
+        {countriesList
+        .filter((country) => country.name.common.toLowerCase().includes(search.toLowerCase()))
+        
         .map((country) => (
           <Col key={country.name.official} className="mt-5">
             <Card className="h-100">
