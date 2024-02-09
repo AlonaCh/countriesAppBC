@@ -11,6 +11,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { initializeCountries } from "../store/countriesSlice";
 import { addFavourite } from "../store/favouritesSlice";
 import Form from 'react-bootstrap/Form';
+import AcUnitIcon from '@mui/icons-material/AcUnit';
+import { Link } from "react-router-dom";
 
 
 
@@ -66,12 +68,15 @@ const Countries = () => {
         .filter((country) => country.name.common.toLowerCase().includes(search.toLowerCase()))
         
         .map((country) => (
-          <Col key={country.name.official} className="mt-5">
+          <Col key={country.name.common} className="mt-5">
             <Card className="h-100">
               <FavoriteIcon
-                color="red"
-                onClick={() => dispatch(addFavourite(country))}
+                onClick={() => dispatch(addFavourite(country))} 
               />
+            <Link
+                  to={`/countries/${country.name.common}`}
+                  state={{ country: country }}
+                >
               <Card.Img
                 variant="top"
                 className="rounded h-50"
@@ -82,6 +87,7 @@ const Countries = () => {
                   maxHeight: "200px",
                 }}
               />
+           </Link>
               <Card.Body className="d-flex flex-column">
                 <Card.Title>{country.name.common}</Card.Title>
                 <Card.Subtitle className="mb-5 text-muted">
