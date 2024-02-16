@@ -30,6 +30,14 @@ useEffect(() =>{
   });
 },[country.capital]);
 
+if(loading){
+  return(
+    <Col className="text-center m-5">
+    <Spinner animation="grow" />
+  </Col>
+  )
+}
+
   return (
     <Container>
       <div>Single Country will be here</div>
