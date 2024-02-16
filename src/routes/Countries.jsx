@@ -36,11 +36,6 @@ const Countries = () => {
   }, [dispatch]); //call the function once when the component is mounted
 
 
-  // useEffect(() => {
-  //   console.log(search);
-  // }, [search]); //everytime search changes console.log will run
-
-
   if (loading) {
     return (
       <Col className="text-center m-5">
