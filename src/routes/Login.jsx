@@ -1,11 +1,8 @@
-import React from 'react'
-import { useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, loginWithEmailAndPassword, registerWithEmailAndPassword } from "../auth/firebase";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import { auth, loginWithEmailAndPassword } from "../auth/firebase";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -14,6 +11,8 @@ const Login = () => {
     const navigate = useNavigate();
 
     const login = () => {
+        //new
+       if(!email || !password) return alert("Please fill in all the fields");
         loginWithEmailAndPassword(email, password);
     }
 
@@ -21,9 +20,8 @@ const Login = () => {
     
         <div>
         
-        
         <input
-        type="text"
+        type="email"
         value={email}
         placeholder="Email"
         onChange={
