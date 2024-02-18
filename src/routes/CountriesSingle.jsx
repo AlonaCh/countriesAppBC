@@ -7,7 +7,6 @@ import { Container, Button, Col, Image, Row, Spinner} from "react-bootstrap";
 import { AltRoute } from "@mui/icons-material";
 
 const CountriesSingle = () => {
-  //const {single} = useParams()
   const location = useLocation();
   console.log(location);
   const navigate = useNavigate();
@@ -57,7 +56,7 @@ src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt
   <Col>
   <h2 className="display-4">{country.name.common}</h2>
   <h3>{country.capital}</h3>
-   {/* if {!error && weather && (  */}
+   {/*  {!error && weather && (  */}
     <div>
       <p>
          Now it is <strong>{Math.round(weather.main.temp)}°</strong> 
