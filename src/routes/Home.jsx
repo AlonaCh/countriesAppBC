@@ -1,5 +1,4 @@
 const Home = () => {
-  const {VITE_FIREBASE_API} = import.meta.env;
 
   return (
     <div>

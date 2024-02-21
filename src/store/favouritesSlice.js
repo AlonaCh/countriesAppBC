@@ -16,16 +16,16 @@ export const favouritesSlice = createSlice({
             state.favourites = [...state.favourites, action.payload];
 
         },
-        clearFavourites(state, action) {
-            state.favourites = [];
-        },
         closeFavourite(state, action) {
             state.favourites = state.favourites.filter((favourite) => favourite.name.common !== action.payload.name.common);
-        }
+        },
+        closeAllFavourites(state, action) {
+            state.favourites = [];
+        },
     },
 });
 
-export const { addFavourite, clearFavourites, closeFavourite } = favouritesSlice.actions;
+export const { addFavourite, closeFavourite, closeAllFavourites } = favouritesSlice.actions;
 
 export default favouritesSlice.reducer;
 

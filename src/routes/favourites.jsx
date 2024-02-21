@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import { useDispatch, useSelector } from "react-redux";
 import { initializeCountries } from "../store/countriesSlice";
 import { closeFavourite } from "../store/favouritesSlice";
+import { closeAllFavourites } from "../store/favouritesSlice";
 
 const Favourites = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,9 @@ const Favourites = () => {
 
   return (
     <Container fluid>
+        <HighlightOffIcon onClick={()=>dispatch(closeAllFavourites())} /> 
       <Row xs={2} md={3} lg={4} className=" g-3">
+    
         {favourites.map((country) => (
           <Col key={country.name.official} className="mt-5">
             <Card className="h-100">
