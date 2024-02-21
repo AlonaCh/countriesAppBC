@@ -78,7 +78,7 @@ src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt
 {/* <Button variant="primary" size="sm" onClick={()=>navigate("/countries")}>
 &larr; Back to countries
 </Button> */}
-<Button className="bg-fuchsia-950 py-3 px-4 inline-block rounded-full hover:bg-fuchsia-50 duration-300 hover:text-stone-800 focus:outline-none " >&larr; Back to countries</Button>
+<Button className="bg-fuchsia-950 py-3 px-4 inline-block rounded-full hover:bg-fuchsia-50 duration-300 hover:text-stone-800 focus:outline-none "onClick={()=>navigate("/countries")} >&larr; Back to countries</Button>
 </Col>
 </Row>
     </Container>

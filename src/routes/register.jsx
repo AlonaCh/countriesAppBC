@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, registerWithEmailAndPassword } from "../auth/firebase";
+import { useEffect, useState } from "react"
+import { useAuthState } from "react-firebase-hooks/auth"
+import { auth, registerWithEmailAndPassword } from "../auth/firebase"
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
  
@@ -18,6 +18,7 @@ const Register = () => {
 
   useEffect(() => {
     if (loading) return;
+    if (user) console.log("User info:", user)
     if (user) navigate("/countries");
   }, [user, loading]);
 
