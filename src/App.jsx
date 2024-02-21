@@ -1,4 +1,5 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+// import {queryClient} from "@tanstack/react-query";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -15,6 +16,7 @@ import Favourites from "./routes/favourites";
 import Register from "./routes/Register";
 import Login from "./routes/Login";
 
+// const queryClient = new QueryClient();
 
 const theme = createTheme({
   palette: {

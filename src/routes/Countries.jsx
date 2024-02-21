@@ -54,8 +54,8 @@ const Countries = () => {
     <>
 
     <Container fluid>
-      <Row>
-    <Form.Control size="lg" type="tex" placeholder="Search..." onChange={searchHandler}/>
+      <Row className="flex flex-col items-center">
+    <Form.Control className=" w-72 rounded-full py-2 mt-2.5 mplaceholder:text-stone-600 focus:w-96 sm:w-64 focus:outline-none focus:ring focus:ring-indigo-400"  type="text" placeholder="Search..." onChange={searchHandler}/>
     </Row>
       <Row xs={2} md={3} lg={4} className=" g-3">
         {countriesList

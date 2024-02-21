@@ -53,4 +53,5 @@ export const logout = () => {
     auth.signOut()
 
 }
+
 export { auth, db, registerWithEmailAndPassword } //we export the function to use it in the component

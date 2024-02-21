@@ -18,9 +18,12 @@ const Login = () => {
 
   return (
     
-        <div className="m-3 text-center p-3">
+        <div className="flex flex-col items-center">
+            
         <input
-        className="w-72 h-10 m-3"
+        className="w-756 h-10 m-3 rounded-full
+        text-stone-500  
+        placeholder:text-stone-400 focus:w-72 sm:w-64 focus:outline-none focus:ring focus:ring-indigo-400"
         type="email"
         value={email}
         placeholder="Email" 
@@ -29,7 +32,8 @@ const Login = () => {
         } />
         
         <input
-        className="w-72 h-10 m-3"
+        className="w-56 h-10 m-3 rounded-full 
+        text-stone-500placeholder:text-stone-400 focus:w-72 sm:w-64 focus:outline-none focus:ring focus:ring-indigo-400"
         type="password"
         value={password}
         placeholder="Password"
@@ -37,6 +41,7 @@ const Login = () => {
             (e) => setPassword(e.target.value)
         } />
         <Button onClick={login} className="font-semibold text-yellow-300">Login</Button>
+       
         </div>
           )
   
