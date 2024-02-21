@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -7,6 +7,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import { useDispatch, useSelector } from "react-redux";
 import { initializeCountries } from "../store/countriesSlice";
+import { closeFavourite } from "../store/favouritesSlice";
 
 const Favourites = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,9 @@ const Favourites = () => {
         {favourites.map((country) => (
           <Col key={country.name.official} className="mt-5">
             <Card className="h-100">
+
+              <HighlightOffIcon onClick={()=>dispatch(closeFavourite(country))} /> 
+
               <Card.Img
                 variant="top"
                 className="rounded h-50"
