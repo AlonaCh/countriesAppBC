@@ -18,24 +18,25 @@ const Login = () => {
 
   return (
     
-        <div>
-        
+        <div className="m-3 text-center p-3">
         <input
+        className="w-72 h-10 m-3"
         type="email"
         value={email}
-        placeholder="Email"
+        placeholder="Email" 
         onChange={
             (e) => setEmail(e.target.value)
         } />
         
         <input
+        className="w-72 h-10 m-3"
         type="password"
         value={password}
         placeholder="Password"
         onChange={
             (e) => setPassword(e.target.value)
         } />
-        <Button onClick={login}>Login</Button>
+        <Button onClick={login} className="font-semibold text-yellow-300">Login</Button>
         </div>
           )
   

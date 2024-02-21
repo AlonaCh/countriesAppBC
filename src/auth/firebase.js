@@ -2,12 +2,13 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, addDoc, collection } from "firebase/firestore";
+const { VITE_FIREBASE_API } = import.meta.env;
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCYdjywCESulR8LJzi5ZzxfE8dRDSAoEOc",
+    apiKey: VITE_FIREBASE_API,
     authDomain: "countries-6cd83.firebaseapp.com",
     projectId: "countries-6cd83",
     storageBucket: "countries-6cd83.appspot.com",

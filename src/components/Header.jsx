@@ -8,9 +8,9 @@ import { logout } from "../auth/firebase";
 
 const Header = () => {
   return (
-    <Container fluid>
+    <Container fluid >
       <Row>
-        <Navbar bg="light" variant="light">
+        <Navbar className="bg-violet-100" variant="light">
           <Container className="justify-content-end">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">

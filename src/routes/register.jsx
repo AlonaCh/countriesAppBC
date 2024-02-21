@@ -22,7 +22,7 @@ const Register = () => {
   }, [user, loading]);
 
   return (
-<div>
+<div className="bg-slate-100">
 <h1>Register</h1>
 <input
 type="text"
