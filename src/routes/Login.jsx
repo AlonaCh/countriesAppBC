@@ -11,15 +11,30 @@ const Login = () => {
     const navigate = useNavigate();
 
     const login = () => {
-        //new
-       if(!email || !password) return alert("Please fill in all the fields");
-        loginWithEmailAndPassword(email, password);
+        // Check if email or password is empty
+        if (!email || !password) {
+            alert("Please fill in all the fields");
+            return;
+        }
+        // Perform login action
+        loginWithEmailAndPassword(email, password)
+            .then(() => {
+                // Clear email and password fields on success
+                setEmail("");
+                setPassword("");
+                navigate("/countries");            })
+            .catch((error) => {
+                // Handle login error if necessary
+                console.error("Login failed:", error);
+                // Optionally show an error message to the user
+                alert("Login failed. Please try again.");
+            });
     }
 
   return (
     
         <div className="flex flex-col items-center">
-            
+            <h1>Log in to your account</h1>
         <input
         className="w-756 h-10 m-3 rounded-full
         text-stone-500  

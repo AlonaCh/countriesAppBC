@@ -6,11 +6,36 @@ import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
 import { logout } from "../auth/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../auth/firebase";
+import {db, auth} from "../auth/firebase";
+import { collection, onSnapshot, doc, setDoc, getDocs} from "firebase/firestore";
+import { useEffect, useState } from "react";
 
 const Header = () => {
-  const [user, loading, error] = useAuthState(auth);
-  
+  const [user] = useAuthState(auth);
+  const [nameUser, setNameUser] = useState("");
+
+  //real-time listener
+
+    /*useEffect(() => {
+    async function fetchData() {
+    const querySnapshot = await getDocs(collection(db, 'users'));
+    
+    if (user) {
+        querySnapshot.forEach((doc) => {
+          (doc) => doc.data()
+            if (doc.uid === user.uid) {
+              
+              setNameUser(doc.data().name);
+                // Break the loop since we found the matching user
+                return;
+            }
+        });
+    }
+  }
+
+  fetchData();
+},  [user, setNameUser]);*/
+
   return (
     <Container fluid >
       <Row>
@@ -41,6 +66,7 @@ const Header = () => {
                 {user &&(
                 <Button onClick={logout}>Logout</Button>
                 )}
+                {nameUser && (<span>{nameUser}</span>)}
               </Nav>
             </Navbar.Collapse>
           </Container>

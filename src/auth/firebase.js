@@ -57,13 +57,8 @@ export const logout = () => {
 
 //Name of the user in real time
 
-// const countriesRef = collection(db, "countries");
 
-// const q = query(collection(db, "countries"), where("name", "==", true));
-
-// const unsub = onSnapshot(doc(db, "countries", "name"), (doc) => {
-//     console.log("Current data: ", doc.data());
-// });
+// const q = query(collection(db, "users"), where("name", "==", true));
 
 
 export { auth, db, registerWithEmailAndPassword } //we export the function to use it in the component
