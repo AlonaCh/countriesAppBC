@@ -1,10 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, addDoc, collection } from "firebase/firestore";
+import { getFirestore, addDoc, collection, onSnapshot, doc, setDoc } from "firebase/firestore";
 const { VITE_FIREBASE_API } = import.meta.env;
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -53,5 +54,16 @@ export const logout = () => {
     auth.signOut()
 
 }
+
+//Name of the user in real time
+
+// const countriesRef = collection(db, "countries");
+
+// const q = query(collection(db, "countries"), where("name", "==", true));
+
+// const unsub = onSnapshot(doc(db, "countries", "name"), (doc) => {
+//     console.log("Current data: ", doc.data());
+// });
+
 
 export { auth, db, registerWithEmailAndPassword } //we export the function to use it in the component

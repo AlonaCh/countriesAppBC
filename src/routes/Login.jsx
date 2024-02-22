@@ -33,7 +33,7 @@ const Login = () => {
         
         <input
         className="w-56 h-10 m-3 rounded-full 
-        text-stone-500placeholder:text-stone-400 focus:w-72 sm:w-64 focus:outline-none focus:ring focus:ring-indigo-400"
+        text-stone-500 placeholder:text-stone-400 focus:w-72 sm:w-64 focus:outline-none focus:ring focus:ring-indigo-400"
         type="password"
         value={password}
         placeholder="Password"
