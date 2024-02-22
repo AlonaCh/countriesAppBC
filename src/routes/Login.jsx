@@ -22,7 +22,8 @@ const Login = () => {
                 // Clear email and password fields on success
                 setEmail("");
                 setPassword("");
-                navigate("/countries");            })
+                navigate("/countries"); 
+            })
             .catch((error) => {
                 // Handle login error if necessary
                 console.error("Login failed:", error);

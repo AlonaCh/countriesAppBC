@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { logout } from "../auth/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import {db, auth} from "../auth/firebase";
-import { collection, onSnapshot, doc, setDoc, getDocs} from "firebase/firestore";
+import { collection, onSnapshot, doc, getDocs} from "firebase/firestore";
 import { useEffect, useState } from "react";
 
 const Header = () => {
@@ -64,7 +64,9 @@ const Header = () => {
                 </Link> 
                 )}
                 {user &&(
-                <Button onClick={logout}>Logout</Button>
+                <Button onClick={()=>{
+                  logout();
+                navigate("/login")}} >Logout</Button>
                 )}
                 {nameUser && (<span>{nameUser}</span>)}
               </Nav>
