@@ -33,34 +33,45 @@ const Login = () => {
     }
 
   return (
-    
-        <div className="flex flex-col items-center">
-            <h1>Log in to your account</h1>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0 ">
+    <div className="flex flex-col justify-center p-8 md:p-14">
+    <span className="mb-3 text-4xl font-bold">Log in</span>
+    <div className="py-4">
+        <span className="mb-2 text-md">Email</span>
         <input
-        className="w-756 h-10 m-3 rounded-full
-        text-stone-500  
-        placeholder:text-stone-400 focus:w-72 sm:w-64 focus:outline-none focus:ring focus:ring-indigo-400"
+        className="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"
         type="email"
         value={email}
-        placeholder="Email" 
+        placeholder="Enter full name" 
         onChange={
             (e) => setEmail(e.target.value)
         } />
-        
+           </div>
+           <div className="py-4">
+            <span className="mb-2 text-md">Password</span>
         <input
-        className="w-56 h-10 m-3 rounded-full 
-        text-stone-500 placeholder:text-stone-400 focus:w-72 sm:w-64 focus:outline-none focus:ring focus:ring-indigo-400"
+        className="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"
         type="password"
         value={password}
-        placeholder="Password"
+        placeholder="Enter password"
         onChange={
             (e) => setPassword(e.target.value)
         } />
-        <Button onClick={login} className="font-semibold text-yellow-300">Login</Button>
-       
+        </div>
+        <Button onClick={login} className="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300">Login</Button>
+        
+        <div className="text-center text-gray-400">
+            Don't have an account?
+            <span className="font-bold text-black" onClick={()=> navigate("/register")}> Sign up here
+                </span>
+     
+        </div>
+        </div>
+       </div>
         </div>
           )
   
 }
 
-export default Login
+export default Login;
