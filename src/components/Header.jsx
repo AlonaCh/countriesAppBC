@@ -63,10 +63,11 @@ if (user) {
       <Row>
     
         <Navbar className=" bg-violet-100" variant="light">
-          <Container className="justify-content-end">
-         
+          <Container >
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
+            <div className="flex justify-between w-full">
+
               <Nav >
                 <Link to="/">
                   <Button variant="contained">Home</Button>
@@ -95,9 +96,10 @@ if (user) {
                 )}
                
               </Nav>
-              <p className="text-right">
+              <p >
               {nameUser && (<span><FaceIcon /> {nameUser}</span>)}
               </p>
+              </div>
             </Navbar.Collapse>
            
           </Container>
