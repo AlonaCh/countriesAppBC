@@ -84,6 +84,19 @@ export const removeFavouriteFromFirebase = async (uid, name) => {
         console.error("The item was not removed", err);
     }
 };
+
+export const closeFavouritesFromFirebase = async (uid) => {
+    try {
+        const q = query(collection(db, `users/${uid}/favourites`));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            deleteDoc(doc.ref);
+            console.log("All items removed");
+        });
+    } catch (err) {
+        console.error("The items were not removed", err)
+    }
+};
 //Name of the user in real time
 
 
