@@ -66,6 +66,24 @@ export const addFavouriteToFirebase = async (uid, name) => {
     }
 };
 
+export const removeFavouriteFromFirebase = async (uid, name) => {
+    console.log("Name", name);
+    try {
+        if (!name) {
+            console.error("Name is not defined. Error removing item");
+            return;
+        }
+        const q = query(collection(db, `users/${uid}/favourites`),
+            where("name", "==", name));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            deleteDoc(doc.ref);
+            console.log("Item removed");
+        });
+    } catch (err) {
+        console.error("The item was not removed", err);
+    }
+};
 //Name of the user in real time
 
 
