@@ -10,6 +10,7 @@ export const favouritesSlice = createSlice({
     reducers: {
         getFavourites(state, action) {
             state.favourites = action.payload;
+
         },
         addFavourite(state, action) {
             if (!state.favourites.some((favourite) => favourite === applyActionCode.payload)) {
@@ -42,7 +43,7 @@ export const favouritesSlice = createSlice({
     },
 });
 
-export const { addFavourite, closeFavourite, closeAllFavourites } = favouritesSlice.actions;
+export const { addFavourite, closeFavourite, closeAllFavourites, getFavourites } = favouritesSlice.actions;
 
 export default favouritesSlice.reducer;
 
