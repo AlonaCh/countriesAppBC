@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body {}
+
 
 /* @layer components {
     .input {
@@ -11,3 +11,8 @@ body {}
         placeholder:text-stone-400 focus:w-72 sm:w-64 focus:outline-none focus:ring focus:ring-indigo-400
     }
 } */
+.text-right{
+    text-align: right;
+    color: red;
+    margin: 0;
+}

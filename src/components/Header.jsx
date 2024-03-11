@@ -1,5 +1,6 @@
 import { Button } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
+import Stack from 'react-bootstrap/Stack';
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Row from "react-bootstrap/Row";
@@ -58,12 +59,15 @@ if (user) {
 
   return (
     <Container fluid >
+        
       <Row>
-        <Navbar className="bg-violet-100" variant="light">
+    
+        <Navbar className=" bg-violet-100" variant="light">
           <Container className="justify-content-end">
+         
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-              <Nav>
+              <Nav >
                 <Link to="/">
                   <Button variant="contained">Home</Button>
                 </Link>
@@ -88,12 +92,19 @@ if (user) {
                   logout();
                 navigate("/login")}} >Logout</Button>
                 )}
-                {nameUser && (<span><FaceIcon/> {nameUser}</span>)}
+               
               </Nav>
+              <p className="text-right">
+              {nameUser && (<span><FaceIcon large/> {nameUser}</span>)}
+              </p>
             </Navbar.Collapse>
+           
           </Container>
+          
         </Navbar>
+        
       </Row>
+     
     </Container>
   );
 };

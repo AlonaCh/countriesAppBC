@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, addDoc, collection, onSnapshot, doc, setDoc } from "firebase/firestore";
+import { getFirestore, addDoc, collection, onSnapshot, doc, setDoc, getDocs, deleteDoc, query, where } from "firebase/firestore";
+import { getFavourites } from "../store/favouritesSlice";
 const { VITE_FIREBASE_API } = import.meta.env;
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
