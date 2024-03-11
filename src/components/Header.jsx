@@ -95,7 +95,7 @@ if (user) {
                
               </Nav>
               <p className="text-right">
-              {nameUser && (<span><FaceIcon large/> {nameUser}</span>)}
+              {nameUser && (<span><FaceIcon /> {nameUser}</span>)}
               </p>
             </Navbar.Collapse>
            

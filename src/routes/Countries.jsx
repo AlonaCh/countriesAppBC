@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import LoyaltyIcon from '@mui/icons-material/Loyalty';
 import { Spinner } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
@@ -8,7 +9,8 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import { useDispatch, useSelector } from "react-redux";
 import { initializeCountries } from "../store/countriesSlice";
-import { addFavourite } from "../store/favouritesSlice";
+import { addFavourite, closeFavourite } from "../store/favouritesSlice";
+import { getFavouritesFromFirebase } from "../auth/firebase";
 import Form from 'react-bootstrap/Form';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import { Link } from "react-router-dom";
@@ -24,6 +26,7 @@ const Countries = () => {
 
   const countriesList = useSelector((state)=> state.countries.countries);
   const loading = useSelector((state) =>state.countries.isLoading);
+  const favourites = useSelector((state) => state.favourites.favourites);
 
 
   function searchHandler(event) {
@@ -32,7 +35,8 @@ const Countries = () => {
 
   useEffect(() => {
     dispatch(initializeCountries());
-  }, [dispatch]); //call the function once when the component is mounted
+    dispatch(getFavouritesFromFirebase());// Dispatch action to fetch favourites from Firebase
+  }, [dispatch]); // Dependency array: dispatch function
 
 
   if (loading) {
@@ -55,7 +59,8 @@ const Countries = () => {
 
     <Container fluid>
       <Row className="flex flex-col items-center">
-    <Form.Control className=" w-96 rounded-full py-2 mt-2.5 mplaceholder:text-stone-600 focus:w-1/2 sm:w-64 focus:outline-none focus:ring focus:ring-zinc-400"  type="text" placeholder="Search..." onChange={searchHandler}/>
+    <Form.Control className=" w-96 rounded-full py-2 mt-2.5 mplaceholder:text-stone-600 focus:w-1/2 sm:w-64 focus:outline-none focus:ring focus:ring-zinc-400"  type="text" placeholder="Search..." 
+    onChange={searchHandler}/>
     </Row>
       <Row xs={2} md={3} lg={4} className=" g-3">
         {countriesList
@@ -64,9 +69,21 @@ const Countries = () => {
         .map((country) => (
           <Col key={country.name.common} className="mt-5">
             <Card className="h-100">
-              <FavoriteIcon
-                onClick={() => dispatch(addFavourite(country))} 
-              />
+            {favourites.some(
+                  (favourite) => favourite === country.name?.common
+                ) ? (
+                  <LoyaltyIcon
+                    onClick={() =>
+                      dispatch(closeFavourite(country.name.common))
+                    }
+                  />
+                ) : (
+                  <FavoriteIcon
+                    onClick={() => dispatch(addFavourite(country.name.common))}
+                  />
+                )}
+              
+            
             <Link
                   to={`/countries/${country.name.common}`}
                   state={{ country: country }}

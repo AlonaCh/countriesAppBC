@@ -1,6 +1,6 @@
 
 import { createSlice } from "@reduxjs/toolkit";
-import { addFavouriteToFirebase, auth, removeFavouriteFromFirebase, closeFavouritesFromFirebase } from "../auth/firebase";
+import { addFavouriteToFirebase, auth, deleteFavouriteFromFirebase, deleteFavouritesFromFirebase } from "../auth/firebase";
 
 export const favouritesSlice = createSlice({
     name: "favourites",
@@ -29,7 +29,7 @@ export const favouritesSlice = createSlice({
             state.favourites = [...newArray];
             const user = auth.currentUser;
             if (user) {
-                removeFavouriteFromFirebase(user.uid, action.payload);
+                deleteFavouriteFromFirebase(user.uid, action.payload);
             }
         },
 
@@ -37,7 +37,7 @@ export const favouritesSlice = createSlice({
             state.favourites = [];
             const user = auth.currentUser;
             if (user) {
-                closeFavouritesFromFirebase(user.uid);
+                deleteFavouritesFromFirebase(user.uid);
             }
         },
     },
