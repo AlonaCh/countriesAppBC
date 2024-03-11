@@ -53,8 +53,18 @@ export const loginWithEmailAndPassword = async (email, password) => {
 }
 export const logout = () => {
     auth.signOut()
-
 }
+
+export const addFavouriteToFirebase = async (uid, name) => {
+    try {
+        await addDoc(collection(db, `users/${uid}/favourites`), {
+            name
+        });
+        console.log("Favourite added to Firebase database");
+    } catch (err) {
+        console.error("Error adding document: ", err);
+    }
+};
 
 //Name of the user in real time
 
