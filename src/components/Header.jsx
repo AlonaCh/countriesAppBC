@@ -88,7 +88,8 @@ if (user) {
                 </Link> 
                 )}
                 {user &&(
-                <Button onClick={()=>{
+                <Button className="border border-transparent bg-gray-900 text-white px-6 rounded-lg hover:bg-gray-500"
+                onClick={()=>{
                   logout();
                 navigate("/login")}} >Logout</Button>
                 )}

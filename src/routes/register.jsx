@@ -60,7 +60,8 @@ placeholder="Enter password"
 onChange={(e) => setPassword(e.target.value)} />
 </div>
 
-<Button className="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300" onClick={register}>Sign up</Button>
+<Button className="w-full border border-transparent bg-gray-900 text-white p-2 rounded-lg mb-6 hover:bg-gray-500"
+ onClick={register}>Sign up</Button>
 </div>
 
 <div className="relative">

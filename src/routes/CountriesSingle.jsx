@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import {useLocation, useNavigate} from "react-router-dom";
 const { VITE_OPENWEATHER_API } = import.meta.env;
+// import Map from "../components/Map";
 
 import { Container, Button, Col, Image, Row, Spinner} from "react-bootstrap";
 import { AltRoute } from "@mui/icons-material";
@@ -11,6 +12,7 @@ const CountriesSingle = () => {
   console.log(location);
   const navigate = useNavigate();
   const country = location.state.country;
+  console.log("COUNTRY", country);
 
   const[weather, setWeather] = useState('');
   const[error, setError] = useState('false');
@@ -43,8 +45,8 @@ if(loading){
   );
 }
 
-
   return (
+    <>
     <Container>
       <Row className="m-5">
         <Col>
@@ -56,6 +58,7 @@ src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt
   <Col>
   <h2 className="display-4">{country.name.common}</h2>
   <h3>{country.capital}</h3>
+  {}
    {/*  {!error && weather && (  */}
     <div>
       <p>
@@ -70,6 +73,7 @@ src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt
         />
       
     </div>
+    
   {/* )} */}
   </Col>
   </Row>
@@ -79,9 +83,13 @@ src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt
 &larr; Back to countries
 </Button> */}
 <Button className="bg-fuchsia-950 py-3 px-4 inline-block rounded-full hover:bg-fuchsia-50 duration-300 hover:text-stone-800 focus:outline-none "onClick={()=>navigate("/countries")} >&larr; Back to countries</Button>
+
 </Col>
 </Row>
+{/* < Map country={country}/> */}
     </Container>
+ 
+    </>
   );
 };
 

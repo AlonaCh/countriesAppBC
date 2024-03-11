@@ -59,11 +59,11 @@ const Login = () => {
             (e) => setPassword(e.target.value)
         } />
         </div>
-        <Button onClick={login} className="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300">Login</Button>
+        <Button onClick={login} className="w-full border border-transparent bg-gray-900 text-white p-2 rounded-lg mb-6 hover:bg-gray-500">Login</Button>
         
         <div className="text-center text-gray-400">
             Don't have an account?
-            <span className="font-bold text-black" onClick={()=> navigate("/register")}> Sign up here
+            <span className="cursor-pointer font-bold text-black" onClick={()=> navigate("/register")}> Sign up here
                 </span>
      
         </div>

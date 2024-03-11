@@ -1,6 +1,11 @@
+/* Taken from getting started guide at: https://leafletjs.com/examples/quick-start/ */
+/* @import "https://unpkg.com/leaflet@1.9.3/dist/leaflet.css";
+@import "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"; */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 
 
@@ -16,3 +21,14 @@
     color: red;
     margin: 0;
 }
+
+    /* .mapContainer {
+        flex: 1;
+        height: 100%;
+        background-color: var(--color-dark--2);
+        position: relative;
+      }
+      
+      .map {
+        height: 100%;
+      } */
