@@ -68,7 +68,7 @@ const Countries = () => {
         
         .map((country) => (
           <Col key={country.name.common} className="mt-5">
-            <Card className="h-100">
+            <Card className="overflow-hidden h-100">
             {favourites.some(
                   (favourite) => favourite === country.name?.common
                 ) ? (
@@ -89,13 +89,14 @@ const Countries = () => {
                 >
               <Card.Img
                 variant="top"
-                className="rounded h-50"
+                className="rounded h-50 hover:transform hover:scale-110 transition-transform duration-300"
                 src={country.flags.svg}
                 style={{
                   objectFit: "cover",
                   minHeight: "200px",
                   maxHeight: "200px",
                 }}
+                
               />
            </Link>
               <Card.Body className="d-flex flex-column">
