@@ -83,7 +83,6 @@ const Countries = () => {
                   />
                 )}
               
-            
             <Link
                   to={`/countries/${country.name.common}`}
                   state={{ country: country }}

@@ -9,17 +9,28 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import { useDispatch, useSelector } from "react-redux";
 import { initializeCountries } from "../store/countriesSlice";
-import { closeFavourite } from "../store/favouritesSlice";
+import { closeFavourite, addFavourite } from "../store/favouritesSlice";
 import { closeAllFavourites } from "../store/favouritesSlice";
+import {getFavouritesFromFirebase} from "../auth/firebase";
+
 
 const Favourites = () => {
   const dispatch = useDispatch();
 
   const favourites = useSelector((state) => state.favourites.favourites);
+  let countriesList = useSelector((state) => state.countries.countries);
+
+  if (favourites.length > 0){
+    countriesList = countriesList.filter((country)=>
+    favourites.includes(country.name.common));
+  }else{
+    countriesList = [];
+  }
 
   // TODO: Implement logic to retrieve favourites later.
   useEffect(() => {
     dispatch(initializeCountries());
+    dispatch(getFavouritesFromFirebase());
   }, [dispatch]);
 
   return (
@@ -27,11 +38,23 @@ const Favourites = () => {
         <HighlightOffIcon onClick={()=>dispatch(closeAllFavourites())} /> 
       <Row xs={2} md={3} lg={4} className=" g-3">
     
-        {favourites.map((country) => (
+        {countriesList.map((country) => (
           <Col key={country.name.official} className="mt-5">
             <Card className="h-100">
 
-              <HighlightOffIcon onClick={()=>dispatch(closeFavourite(country))} /> 
+              {favourites.some(
+                  (favourite) => favourite === country.name?.common
+                ) ? (
+                  <HighlightOffIcon
+                    onClick={() =>
+                      dispatch(closeFavourite(country.name.common))
+                    }
+                  />
+                ) : (
+                  <FavoriteIcon
+                    onClick={() => dispatch(addFavourite(country.name.common))}
+                  />
+                )}
 
               <Card.Img
                 variant="top"
