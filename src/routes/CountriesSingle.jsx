@@ -47,45 +47,57 @@ if(loading){
 
   return (
     <>
-    <Container>
-      <Row className="m-5">
-        <Col>
-        <Image
+    <Container className="flex flex-col justify-center items-center" >
+      {/* <Row className="m-5">
+        <Col> */}
+        {/* <Image
 thumbnail
 src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt={`${country.name.common}`}
-/>
-  </Col>
-  <Col>
-  <h2 className="display-4">{country.name.common}</h2>
-  <h3>{country.capital}</h3>
+/> */}
+<img className="object-cover size-full mt-3 rounded-md" src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt={`${country.name.common}`}/>
+  {/* </Col>
+  <Col> */}
+  <h2 className="text-center text-5xl mt-2">{country.name.common}</h2>
+  <h3 className="text-center text-2xl mt-2 text-zinc-500">{country.capital}</h3>
   {}
    {/*  {!error && weather && (  */}
-    <div>
-      <p>
-         Now it is <strong>{Math.round(weather.main.temp)}°</strong> 
+   <div className=" bg-gradient-to-r from-lime-50 to-lime-100 flex justify-center items-center rounded-md my-3">
 
-         <span> in {country.capital} and {weather.weather[0].description}</span>
-      </p>
-       <p>Feels like: <strong>{Math.round(weather.main.feels_like)}°</strong></p> 
-        <img
+   <div className="flex justify-between w-72 h-40 mx-5 items-center">
+         <div>
+        <img 
         src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
         alt={weather.weather[0].description}
         />
-      
+        <p>{weather.weather[0].description}</p>
+      </div>
+
+      <div>
+        <div className="mb-px">
+    <strong>{Math.round(weather.main.temp)}°</strong> 
+         <span> in {country.capital}</span>
+         </div>
+         <p>Feels like: <strong>{Math.round(weather.main.feels_like)}°</strong></p> 
+        
+      </div>
+      </div>
+     
+       
     </div>
     
   {/* )} */}
-  </Col>
+  {/* </Col>
   </Row>
       <Row>
-<Col>
+<Col> */}
 {/* <Button variant="primary" size="sm" onClick={()=>navigate("/countries")}>
 &larr; Back to countries
 </Button> */}
-<Button className="bg-fuchsia-950 py-3 px-4 inline-block rounded-full hover:bg-fuchsia-50 duration-300 hover:text-stone-800 focus:outline-none "onClick={()=>navigate("/countries")} >&larr; Back to countries</Button>
+<Button className="bg-fuchsia-950 py-3 px-4 inline-block rounded-full hover:bg-fuchsia-50 duration-300 hover:text-stone-800 focus:outline-none "
+onClick={()=>navigate("/countries")} >&larr; Back to countries</Button>
 
-</Col>
-</Row>
+{/* </Col>
+</Row> */}
 {/* < Map country={country}/> */}
     </Container>
  
