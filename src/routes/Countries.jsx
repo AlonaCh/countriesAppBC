@@ -33,11 +33,15 @@ const Countries = () => {
     setSearch(event.target.value.toLowerCase());
   }
 
+  function getBorderName(borderName){
+    return countriesList.find(country => country.cca3 == borderName).name.common;
+
+  }
+
   useEffect(() => {
     dispatch(initializeCountries());
     dispatch(getFavouritesFromFirebase());// Dispatch action to fetch favourites from Firebase
   }, [dispatch]); // Dependency array: dispatch function
-
 
   if (loading) {
     return (
@@ -120,6 +124,10 @@ const Countries = () => {
                   </ListGroup.Item>
                   <ListGroup.Item>
                     {country.population.toLocaleString()}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                   {country.borders && country.borders.length > 0
+                   ? country.borders.map((border)=>getBorderName(border)).join(", "): ("No borders")}
                   </ListGroup.Item>
                 </ListGroup>
               </Card.Body>
