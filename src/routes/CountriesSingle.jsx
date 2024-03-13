@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import {useLocation, useNavigate} from "react-router-dom";
 const { VITE_OPENWEATHER_API } = import.meta.env;
-// import Map from "../components/Map";
+ import Map from "../components/Map";
 
 import { Container, Button, Col, Image, Row, Spinner} from "react-bootstrap";
 import { AltRoute } from "@mui/icons-material";
@@ -98,7 +98,7 @@ onClick={()=>navigate("/countries")} >&larr; Back to countries</Button>
 
 {/* </Col>
 </Row> */}
-{/* < Map country={country}/> */}
+    <Map country={country}></Map>
     </Container>
  
     </>
