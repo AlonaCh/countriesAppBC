@@ -61,7 +61,7 @@ src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt
   <h3 className="text-center text-2xl mt-2 text-zinc-500">{country.capital}</h3>
   {}
    {/*  {!error && weather && (  */}
-   <div className=" bg-gradient-to-r from-lime-50 to-lime-100 flex justify-center items-center rounded-md my-3">
+   <div className=" bg-gradient-to-r from-lime-50 to-lime-100 flex justify-center items-center rounded-md my-3 text-zinc-500">
 
    <div className="flex justify-between w-72 h-40 mx-5 items-center">
          <div>

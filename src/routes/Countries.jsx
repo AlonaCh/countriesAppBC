@@ -62,29 +62,17 @@ const Countries = () => {
 
     <Container fluid>
       <Row className="flex flex-col items-center">
-    <Form.Control className=" w-96 rounded-full py-2 mt-2.5 mplaceholder:text-stone-600 focus:w-1/2 sm:w-64 focus:outline-none focus:ring focus:ring-zinc-400"  type="text" placeholder="Search..." 
+    <Form.Control className=" w-96 rounded-full py-2 mt-5 mb-5 mplaceholder:text-stone-600 focus:w-1/2 sm:w-64 focus:outline-none focus:ring focus:ring-zinc-400"  type="text" placeholder="Search..." 
     onChange={searchHandler}/>
     </Row>
-      <Row xs={2} md={3} lg={4} className=" g-3">
+      <Row xs={2} md={3} lg={3} className="mx-5 g-5">
         {countriesList
         .filter((country) => country.name.common.toLowerCase().includes(search.toLowerCase()))
         
         .map((country) => (
           <Col key={country.name.common} className="mt-5">
             <Card className="overflow-hidden h-100">
-            {favourites.some(
-                  (favourite) => favourite === country.name?.common
-                ) ? (
-                  <LoyaltyIcon
-                    onClick={() =>
-                      dispatch(closeFavourite(country.name.common))
-                    }
-                  />
-                ) : (
-                  <FavoriteIcon
-                    onClick={() => dispatch(addFavourite(country.name.common))}
-                  />
-                )}
+            
               
             <Link
                   to={`/countries/${country.name.common}`}
@@ -96,15 +84,15 @@ const Countries = () => {
                 src={country.flags.svg}
                 style={{
                   objectFit: "cover",
-                  minHeight: "200px",
-                  maxHeight: "200px",
+                  minHeight: "250px",
+                  maxHeight: "250px",
                 }}
                 
               />
            </Link>
               <Card.Body className="d-flex flex-column">
                 <Card.Title>{country.name.common}</Card.Title>
-                <Card.Subtitle className="mb-5 text-muted">
+                <Card.Subtitle className="mb-2 text-muted">
                   {country.name.official}
                 </Card.Subtitle>
                 <ListGroup
@@ -131,6 +119,19 @@ const Countries = () => {
                   </ListGroup.Item>
                 </ListGroup>
               </Card.Body>
+              {favourites.some(
+                  (favourite) => favourite === country.name?.common
+                ) ? (
+                  <LoyaltyIcon
+                    onClick={() =>
+                      dispatch(closeFavourite(country.name.common))
+                    }
+                  />
+                ) : (
+                  <FavoriteIcon
+                    onClick={() => dispatch(addFavourite(country.name.common))}
+                  />
+                )}
             </Card>
           </Col>
         ))}
