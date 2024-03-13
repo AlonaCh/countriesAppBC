@@ -11,26 +11,20 @@ const Login = () => {
     const navigate = useNavigate();
 
     const login = () => {
-        // Check if email or password is empty
-        if (!email || !password) {
-            alert("Please fill in all the fields");
-            return;
-        }
         // Perform login action
         loginWithEmailAndPassword(email, password)
             .then(() => {
                 // Clear email and password fields on success
-                setEmail("");
-                setPassword("");
-                navigate("/countries"); 
+                setEmail('');
+                setPassword('');
+                navigate('/countries');
             })
             .catch((error) => {
-                // Handle login error if necessary
                 console.error("Login failed:", error);
-                // Optionally show an error message to the user
                 alert("Login failed. Please try again.");
             });
     }
+  
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">

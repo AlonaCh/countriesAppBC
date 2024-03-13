@@ -9,7 +9,7 @@ import { AltRoute } from "@mui/icons-material";
 
 const CountriesSingle = () => {
   const location = useLocation();
-  console.log(location);
+  console.log("location", location);
   const navigate = useNavigate();
   const country = location.state.country;
   console.log("COUNTRY", country);
