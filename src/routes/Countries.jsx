@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import LoyaltyIcon from '@mui/icons-material/Loyalty';
+import LanguageIcon from '@mui/icons-material/Language';
+import PaymentIcon from '@mui/icons-material/Payment';
 import { Spinner } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
@@ -14,6 +16,7 @@ import { getFavouritesFromFirebase } from "../auth/firebase";
 import Form from 'react-bootstrap/Form';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import { Link } from "react-router-dom";
+
 
 
 
@@ -100,11 +103,11 @@ const Countries = () => {
                   className="flex-grow-1 justify-content-end"
                 >
                   <ListGroup.Item>
-                    <i className="bi bi-translate me-2"></i>
+                    <LanguageIcon className="text-sm"/>
                     {Object.values(country.languages ?? {}).join(", ")}
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <i className="bi bi-cash-coin me-2"></i>
+                    <PaymentIcon className="w-6 h-6"/>
                     {Object.values(country.currencies || {})
                       .map((currency) => currency.name)
                       .join(", ")}

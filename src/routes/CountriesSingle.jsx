@@ -98,9 +98,11 @@ onClick={()=>navigate("/countries")} >&larr; Back to countries</Button>
 
 {/* </Col>
 </Row> */}
-    <Map country={country}></Map>
+
     </Container>
- 
+    <div id="map">
+    <Map country={country}/>
+   </div>
     </>
   );
 };
