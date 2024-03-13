@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import LoyaltyIcon from '@mui/icons-material/Loyalty';
+import LanguageIcon from '@mui/icons-material/Language';
+import PaymentIcon from '@mui/icons-material/Payment';
+import BoyIcon from '@mui/icons-material/Boy';
+import CloseIcon from '@mui/icons-material/Close';
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -35,17 +38,51 @@ const Favourites = () => {
 
   return (
     <Container fluid>
-        <HighlightOffIcon onClick={()=>dispatch(closeAllFavourites())} /> 
-      <Row xs={2} md={3} lg={4} className=" g-3">
+        <CloseIcon onClick={()=>dispatch(closeAllFavourites())} /> 
+      <Row xs={2} md={3} lg={3} className="mx-5 mt-3 g-5">
     
         {countriesList.map((country) => (
           <Col key={country.name.official} className="mt-5">
-            <Card className="h-100">
-
+            <Card className="overflow-hidden h-100 cursor-pointer">
+              <Card.Img
+                variant="top"
+                className="countriesImg"
+                src={country.flags.svg}
+                style={{
+                  objectFit: "cover",
+                  minHeight: "200px",
+                  maxHeight: "200px",
+                }}
+              />
+              <Card.Body className="d-flex flex-column text-sm">
+                <Card.Title>{country.name.common}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">
+                  {country.name.official}
+                </Card.Subtitle>
+                <ListGroup
+                  variant="flush"
+                  className="flex-grow-1 justify-content-end"
+                >
+                  <ListGroup.Item>
+                  <LanguageIcon />
+                    {Object.values(country.languages ?? {}).join(", ")}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                  <PaymentIcon className="w-3 h-3"/>
+                    {Object.values(country.currencies || {})
+                      .map((currency) => currency.name)
+                      .join(", ")}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                  <BoyIcon/>
+                    {country.population.toLocaleString()}
+                  </ListGroup.Item>
+                </ListGroup>
+              </Card.Body>
               {favourites.some(
                   (favourite) => favourite === country.name?.common
                 ) ? (
-                  <HighlightOffIcon
+                  <CloseIcon className="text-muted absolute bottom-0 right-0"
                     onClick={() =>
                       dispatch(closeFavourite(country.name.common))
                     }
@@ -55,41 +92,6 @@ const Favourites = () => {
                     onClick={() => dispatch(addFavourite(country.name.common))}
                   />
                 )}
-
-              <Card.Img
-                variant="top"
-                className="rounded h-50"
-                src={country.flags.svg}
-                style={{
-                  objectFit: "cover",
-                  minHeight: "200px",
-                  maxHeight: "200px",
-                }}
-              />
-              <Card.Body className="d-flex flex-column">
-                <Card.Title>{country.name.common}</Card.Title>
-                <Card.Subtitle className="mb-5 text-muted">
-                  {country.name.official}
-                </Card.Subtitle>
-                <ListGroup
-                  variant="flush"
-                  className="flex-grow-1 justify-content-end"
-                >
-                  <ListGroup.Item>
-                    <i className="bi bi-translate me-2"></i>
-                    {Object.values(country.languages ?? {}).join(", ")}
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <i className="bi bi-cash-coin me-2"></i>
-                    {Object.values(country.currencies || {})
-                      .map((currency) => currency.name)
-                      .join(", ")}
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    {country.population.toLocaleString()}
-                  </ListGroup.Item>
-                </ListGroup>
-              </Card.Body>
             </Card>
           </Col>
         ))}

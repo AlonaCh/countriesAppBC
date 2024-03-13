@@ -3,6 +3,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import LoyaltyIcon from '@mui/icons-material/Loyalty';
 import LanguageIcon from '@mui/icons-material/Language';
 import PaymentIcon from '@mui/icons-material/Payment';
+import BoyIcon from '@mui/icons-material/Boy';
 import { Spinner } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
@@ -65,35 +66,34 @@ const Countries = () => {
 
     <Container fluid>
       <Row className="flex flex-col items-center">
-    <Form.Control className=" w-96 rounded-full py-2 mt-5 mb-5 mplaceholder:text-stone-600 focus:w-1/2 sm:w-64 focus:outline-none focus:ring focus:ring-zinc-400"  type="text" placeholder="Search..." 
+    <Form.Control className="w-96 rounded-full py-2 mt-5 mb-5 placeholder:text-stone-600 focus:w-1/2 sm:w-64 focus:outline-none focus:ring focus:ring-zinc-400"  type="text" placeholder="Search..." 
     onChange={searchHandler}/>
     </Row>
+
       <Row xs={2} md={3} lg={3} className="mx-5 g-5">
         {countriesList
         .filter((country) => country.name.common.toLowerCase().includes(search.toLowerCase()))
-        
         .map((country) => (
           <Col key={country.name.common} className="mt-5">
-            <Card className="overflow-hidden h-100">
+            <Card className="overflow-hidden h-100 cursor-pointer">
             
-              
             <Link
                   to={`/countries/${country.name.common}`}
                   state={{ country: country }}
                 >
               <Card.Img
                 variant="top"
-                className="rounded h-50 hover:transform hover:scale-110 transition-transform duration-300"
+                className="countriesImg "
                 src={country.flags.svg}
                 style={{
                   objectFit: "cover",
-                  minHeight: "250px",
-                  maxHeight: "250px",
+                  minHeight: "200px",
+                  maxHeight: "200px",
                 }}
                 
               />
            </Link>
-              <Card.Body className="d-flex flex-column">
+              <Card.Body className="d-flex flex-column text-sm">
                 <Card.Title>{country.name.common}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
                   {country.name.official}
@@ -113,6 +113,7 @@ const Countries = () => {
                       .join(", ")}
                   </ListGroup.Item>
                   <ListGroup.Item>
+                    <BoyIcon/>
                     {country.population.toLocaleString()}
                   </ListGroup.Item>
                   <ListGroup.Item>

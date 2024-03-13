@@ -4,18 +4,12 @@
 @tailwind utilities; 
 
 
-/* @layer components {
-    .input {
-        @apply w-756 h-10 m-3 rounded-full
-        text-stone-500  
-        placeholder:text-stone-400 focus:w-72 sm:w-64 focus:outline-none focus:ring focus:ring-indigo-400
+ @layer components {
+    .countriesImg {
+        @apply rounded h-52 hover:transform hover:scale-110 transition-transform duration-300;
     }
-} */
-.text-right{
-    text-align: right;
-    color: red;
-    margin: 0;
-}
+}  
+
 
     /* .mapContainer {
         flex: 1;
