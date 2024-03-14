@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import {useLocation, useNavigate} from "react-router-dom";
 const { VITE_OPENWEATHER_API } = import.meta.env;
  import Map from "../components/Map";
+ 
+
 
 import { Container, Button, Col, Image, Row, Spinner} from "react-bootstrap";
 import { AltRoute } from "@mui/icons-material";
@@ -61,9 +63,10 @@ src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt
   <h3 className="text-center text-2xl mt-2 text-zinc-500">{country.capital}</h3>
   {}
    {/*  {!error && weather && (  */}
-   <div className=" bg-gradient-to-r from-lime-50 to-lime-100 flex justify-center items-center rounded-md my-3 text-zinc-500">
+   <div className="flex justify-center items-center rounded-md mt-3 mb-4 text-zinc-500 bg-[url('/weather.jpg')] bg-opacity-75">
 
-   <div className="flex justify-between w-72 h-40 mx-5 items-center">
+   <div className="flex justify-between w-72 h-40 mx-5 items-center ">
+  
          <div>
         <img 
         src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
@@ -78,8 +81,8 @@ src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt
          <span> in {country.capital}</span>
          </div>
          <p>Feels like: <strong>{Math.round(weather.main.feels_like)}°</strong></p> 
-        
-      </div>
+         </div>
+     
       </div>
      
        

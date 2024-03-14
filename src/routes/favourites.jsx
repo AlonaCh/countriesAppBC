@@ -15,6 +15,7 @@ import { initializeCountries } from "../store/countriesSlice";
 import { closeFavourite, addFavourite } from "../store/favouritesSlice";
 import { closeAllFavourites } from "../store/favouritesSlice";
 import {getFavouritesFromFirebase} from "../auth/firebase";
+import { Link } from "react-router-dom";
 
 
 const Favourites = () => {
@@ -23,6 +24,7 @@ const Favourites = () => {
   const favourites = useSelector((state) => state.favourites.favourites);
   let countriesList = useSelector((state) => state.countries.countries);
 
+
   if (favourites.length > 0){
     countriesList = countriesList.filter((country)=>
     favourites.includes(country.name.common));
@@ -30,7 +32,10 @@ const Favourites = () => {
     countriesList = [];
   }
 
-  // TODO: Implement logic to retrieve favourites later.
+  // function getBorderName(border){
+  //   return countriesList.find(country => country.cca3 == border).name.common;
+     
+  //  }
   useEffect(() => {
     dispatch(initializeCountries());
     dispatch(getFavouritesFromFirebase());
@@ -77,6 +82,11 @@ const Favourites = () => {
                   <BoyIcon/>
                     {country.population.toLocaleString()}
                   </ListGroup.Item>
+                  {/* <ListGroup.Item>
+                   {country.borders && country.borders.length > 0
+                   ? country.borders.map((border)=>getBorderName(border)).join(", ")
+                   : ("This country has no borders")}
+                  </ListGroup.Item> */}
                 </ListGroup>
               </Card.Body>
               {favourites.some(

@@ -4,6 +4,7 @@ import LoyaltyIcon from '@mui/icons-material/Loyalty';
 import LanguageIcon from '@mui/icons-material/Language';
 import PaymentIcon from '@mui/icons-material/Payment';
 import BoyIcon from '@mui/icons-material/Boy';
+import FlagIcon from '@mui/icons-material/Flag';
 import { Spinner } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
@@ -117,6 +118,7 @@ const Countries = () => {
                     {country.population.toLocaleString()}
                   </ListGroup.Item>
                   <ListGroup.Item>
+                    <FlagIcon className="text-muted"/>
                    {country.borders && country.borders.length > 0
                    ? country.borders.map((border)=>getBorderName(border)).join(", ")
                    : ("This country has no borders")}

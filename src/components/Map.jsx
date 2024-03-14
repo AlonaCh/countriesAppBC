@@ -1,7 +1,8 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useState } from "react";
-
+import L from "leaflet";
+import '../map.css';
 
 function Map({ country }) {
   const defaultPosition = {

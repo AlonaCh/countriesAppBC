@@ -6,11 +6,16 @@
 
  @layer components {
     .countriesImg {
-        @apply rounded h-52 hover:transform hover:scale-110 transition-transform duration-300;
+        @apply rounded h-60 hover:transform hover:scale-110 transition-transform duration-300;
     }
 }  
 
-
+/* .weather {
+    background-image: url("assets/weather.jpg");
+    filter: blur(10px);
+    -webkit-filter: blur(8px);
+    background-size: cover;
+} */
     /* .mapContainer {
         flex: 1;
         height: 100%;
