@@ -57,7 +57,7 @@ if(loading){
 thumbnail
 src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt={`${country.name.common}`}
 /> */}
-<img className="h-96 mt-3 rounded-md" src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt={`${country.name.common}`}/>
+<img className="h-96 mt-3 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110" src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt={`${country.name.common}`}/>
   {/* </Col>
   <Col> */}
   <h2 className="text-center text-5xl mt-2">{country.name.common}</h2>
