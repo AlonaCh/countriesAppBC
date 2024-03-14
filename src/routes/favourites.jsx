@@ -5,6 +5,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import PaymentIcon from '@mui/icons-material/Payment';
 import BoyIcon from '@mui/icons-material/Boy';
 import CloseIcon from '@mui/icons-material/Close';
+import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -43,7 +44,7 @@ const Favourites = () => {
 
   return (
     <Container fluid>
-        <CloseIcon onClick={()=>dispatch(closeAllFavourites())} /> 
+        <Button className="border border-transparent bg-yellow-300 text-gray-900 px-6 absolute right-0 mr-20 rounded-lg hover:bg-gray-900" onClick={()=>dispatch(closeAllFavourites())}>Clear</Button>
       <Row xs={2} md={3} lg={3} className="mx-5 mt-3 g-5">
     
         {countriesList.map((country) => (

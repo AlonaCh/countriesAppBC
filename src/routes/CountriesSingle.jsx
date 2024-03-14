@@ -63,7 +63,7 @@ src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt
   <h3 className="text-center text-2xl mt-2 text-zinc-500">{country.capital}</h3>
   {}
    {/*  {!error && weather && (  */}
-   <div className="flex justify-center items-center rounded-md mt-3 mb-4 text-zinc-950 bg-[url('/weather.jpg')] opacity-70">
+   <div className="flex justify-center items-center rounded-md mt-3 mb-4 text-zinc-950 bg-[url('/weatherpic.jpg')] ">
 
    <div className="flex justify-between w-72 h-40 mx-5 items-center ">
          <div>
@@ -92,7 +92,7 @@ src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt
 {/* <Button variant="primary" size="sm" onClick={()=>navigate("/countries")}>
 &larr; Back to countries
 </Button> */}
-<Button className="bg-fuchsia-950 py-3 px-4 inline-block rounded-full hover:bg-fuchsia-50 duration-300 hover:text-stone-800 focus:outline-none "
+<Button className="border border-transparent bg-gray-900 text-white px-6 rounded-lg hover:bg-gray-500 "
 onClick={()=>navigate("/countries")} >&larr; Back to countries</Button>
 
 {/* </Col>

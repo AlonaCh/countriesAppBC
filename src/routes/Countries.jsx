@@ -95,7 +95,7 @@ const Countries = () => {
               />
            </Link>
               <Card.Body className="d-flex flex-column text-sm">
-                <Card.Title>{country.name.common}</Card.Title>
+                <Card.Title className="underline decoration-yellow-300">{country.name.common}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
                   {country.name.official}
                 </Card.Subtitle>
@@ -118,7 +118,7 @@ const Countries = () => {
                     {country.population.toLocaleString()}
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <FlagIcon className="text-muted"/>
+                    <FlagIcon className="text-muted mb-0"/>
                    {country.borders && country.borders.length > 0
                    ? country.borders.map((border)=>getBorderName(border)).join(", ")
                    : ("This country has no borders")}
@@ -129,12 +129,13 @@ const Countries = () => {
                   (favourite) => favourite === country.name?.common
                 ) ? (
                   <LoyaltyIcon
+             
                     onClick={() =>
                       dispatch(closeFavourite(country.name.common))
                     }
                   />
                 ) : (
-                  <FavoriteIcon
+                  <FavoriteIcon 
                     onClick={() => dispatch(addFavourite(country.name.common))}
                   />
                 )}

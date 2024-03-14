@@ -62,7 +62,7 @@ if (user) {
         
       <Row>
     
-        <Navbar className=" bg-yellow-300 text-lg " variant="light">
+        <Navbar className=" bg-yellow-300 text-lg" variant="light">
           <Container >
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -85,7 +85,7 @@ if (user) {
                 )}
                 {!user && (
                 <Link to="/login">
-                  <Button variant="contained">Login</Button> 
+                  <Button className="border border-transparent bg-gray-900 text-white px-6 rounded-lg hover:bg-gray-500">Login</Button> 
                 </Link> 
                 )}
                 {user &&(
