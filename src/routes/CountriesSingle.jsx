@@ -2,7 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import {useLocation, useNavigate} from "react-router-dom";
 const { VITE_OPENWEATHER_API } = import.meta.env;
- import Map from "../components/Map";
+import Map from "../components/Map";
+
  
 
 
@@ -56,7 +57,7 @@ if(loading){
 thumbnail
 src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt={`${country.name.common}`}
 /> */}
-<img className="object-cover size-full mt-3 rounded-md" src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt={`${country.name.common}`}/>
+<img className="h-96 mt-3 rounded-md" src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt={`${country.name.common}`}/>
   {/* </Col>
   <Col> */}
   <h2 className="text-center text-5xl mt-2">{country.name.common}</h2>
@@ -66,8 +67,8 @@ src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt
    <div className="flex justify-center items-center rounded-md mt-3 mb-4 text-zinc-950 bg-[url('/weatherpic.jpg')] ">
 
    <div className="flex justify-between w-72 h-40 mx-5 items-center ">
-         <div>
-        <img 
+         <div >
+        <img
         src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
         alt={weather.weather[0].description}
         />
@@ -99,9 +100,9 @@ onClick={()=>navigate("/countries")} >&larr; Back to countries</Button>
 </Row> */}
 
     </Container>
-    <div id="map">
-    <Map country={country}/>
-   </div>
+   
+    <Map className="map" country={country}/>
+   
     </>
   );
 };
