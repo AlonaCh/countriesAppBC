@@ -63,10 +63,9 @@ src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt
   <h3 className="text-center text-2xl mt-2 text-zinc-500">{country.capital}</h3>
   {}
    {/*  {!error && weather && (  */}
-   <div className="flex justify-center items-center rounded-md mt-3 mb-4 text-zinc-500 bg-[url('/weather.jpg')] bg-opacity-75">
+   <div className="flex justify-center items-center rounded-md mt-3 mb-4 text-zinc-950 bg-[url('/weather.jpg')] opacity-70">
 
    <div className="flex justify-between w-72 h-40 mx-5 items-center ">
-  
          <div>
         <img 
         src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
@@ -82,11 +81,8 @@ src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt
          </div>
          <p>Feels like: <strong>{Math.round(weather.main.feels_like)}°</strong></p> 
          </div>
-     
+         </div>
       </div>
-     
-       
-    </div>
     
   {/* )} */}
   {/* </Col>

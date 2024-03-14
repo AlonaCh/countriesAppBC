@@ -62,25 +62,25 @@ if (user) {
         
       <Row>
     
-        <Navbar className=" bg-violet-100" variant="light">
+        <Navbar className=" bg-yellow-300 text-lg " variant="light">
           <Container >
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <div className="flex justify-between w-full">
 
-              <Nav >
+              <Nav>
                 <Link to="/">
-                  <Button variant="contained">Home</Button>
+                  <Button className="btnHeader" variant="contained">Home</Button>
                 </Link>
                 <Link to="/countries">
-                  <Button variant="contained">Countries</Button>
+                  <Button  className="btnHeader"variant="contained">Countries</Button>
                 </Link>
                 <Link to="/favourites">
-                  <Button variant="contained">Favourites</Button>
+                  <Button  className="btnHeader" variant="contained">Favourites</Button>
                 </Link>
                 {!user &&(
                 <Link to="/register">
-                  <Button variant="contained">Register</Button>
+                  <Button  className="btnHeader" variant="contained">Register</Button>
                 </Link>
                 )}
                 {!user && (
@@ -96,9 +96,9 @@ if (user) {
                 )}
                
               </Nav>
-              <p >
+              <Button className="btnHeader uppercase" variant="contained">
               {nameUser && (<span><FaceIcon /> {nameUser}</span>)}
-              </p>
+              </Button>
               </div>
             </Navbar.Collapse>
            

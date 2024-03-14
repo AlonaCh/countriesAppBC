@@ -1,3 +1,4 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;1,200&display=swap"); */
 
  @tailwind base;
 @tailwind components;
@@ -8,14 +9,11 @@
     .countriesImg {
         @apply rounded h-60 hover:transform hover:scale-110 transition-transform duration-300;
     }
+    .btnHeader {
+        @apply text-gray-900 text-xl hover:scale-125;
+    }
 }  
 
-/* .weather {
-    background-image: url("assets/weather.jpg");
-    filter: blur(10px);
-    -webkit-filter: blur(8px);
-    background-size: cover;
-} */
     /* .mapContainer {
         flex: 1;
         height: 100%;
