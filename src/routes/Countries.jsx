@@ -41,8 +41,7 @@ const Countries = () => {
   
 
   function getBorderName(border){
-   return countriesList.find(country => country.cca3 == border).name.common;
-    
+   return countriesList.find(country => country.cca3 == border).name.common; 
   }
   useEffect(() => {
     dispatch(initializeCountries());

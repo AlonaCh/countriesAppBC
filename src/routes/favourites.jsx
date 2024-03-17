@@ -5,6 +5,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import PaymentIcon from '@mui/icons-material/Payment';
 import BoyIcon from '@mui/icons-material/Boy';
 import CloseIcon from '@mui/icons-material/Close';
+import FlagIcon from '@mui/icons-material/Flag';
 import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
@@ -37,6 +38,7 @@ const Favourites = () => {
   //   return countriesList.find(country => country.cca3 == border).name.common;
      
   //  }
+  
   useEffect(() => {
     dispatch(initializeCountries());
     dispatch(getFavouritesFromFirebase());
@@ -48,8 +50,13 @@ const Favourites = () => {
       <Row xs={2} md={3} lg={3} className="mx-5 mt-3 g-5">
     
         {countriesList.map((country) => (
-          <Col key={country.name.official} className="mt-5">
+          <Col key={country.name?.official} className="mt-5">
             <Card className="overflow-hidden h-100 cursor-pointer">
+              <Link
+                  to={`/countries/${country.name?.common}`}
+                  state={{ country: country }}
+                >
+
               <Card.Img
                 variant="top"
                 className="countriesImg"
@@ -60,6 +67,7 @@ const Favourites = () => {
                   maxHeight: "200px",
                 }}
               />
+              </Link>
               <Card.Body className="d-flex flex-column text-sm">
                 <Card.Title>{country.name.common}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
@@ -88,6 +96,7 @@ const Favourites = () => {
                    ? country.borders.map((border)=>getBorderName(border)).join(", ")
                    : ("This country has no borders")}
                   </ListGroup.Item> */}
+                  
                 </ListGroup>
               </Card.Body>
               {favourites.some(
