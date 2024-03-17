@@ -18,6 +18,7 @@ import { getFavouritesFromFirebase } from "../auth/firebase";
 import Form from 'react-bootstrap/Form';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import { Link } from "react-router-dom";
+import BackToTop from "../components/BackToTop";
 
 
 
@@ -143,8 +144,12 @@ const Countries = () => {
           </Col>
         ))}
       </Row>
+      <BackToTop
+       />
     </Container>
+   
     </>
+    
   );
 };
 
