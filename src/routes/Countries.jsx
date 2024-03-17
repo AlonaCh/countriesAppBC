@@ -38,6 +38,7 @@ const Countries = () => {
   function searchHandler(event) {
     setSearch(event.target.value.toLowerCase());
   }
+  
 
   function getBorderName(border){
    return countriesList.find(country => country.cca3 == border).name.common;
@@ -105,11 +106,11 @@ const Countries = () => {
                   className="flex-grow-1 justify-content-end"
                 >
                   <ListGroup.Item>
-                    <LanguageIcon className="text-sm"/>
+                    <LanguageIcon style={{ width: '16px' }}/>
                     {Object.values(country.languages ?? {}).join(", ")}
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <PaymentIcon className="w-6 h-6"/>
+                    <PaymentIcon style={{ width: '16px' }}/>
                     {Object.values(country.currencies || {})
                       .map((currency) => currency.name)
                       .join(", ")}
@@ -118,8 +119,8 @@ const Countries = () => {
                     <BoyIcon/>
                     {country.population.toLocaleString()}
                   </ListGroup.Item>
-                  <ListGroup.Item>
-                    <FlagIcon className="text-muted mb-0"/>
+                  <ListGroup.Item className="mb-0 p-1">
+                    <FlagIcon />
                    {country.borders && country.borders.length > 0
                    ? country.borders.map((border)=>getBorderName(border)).join(", ")
                    : ("This country has no borders")}
@@ -129,17 +130,21 @@ const Countries = () => {
               {favourites.some(
                   (favourite) => favourite === country.name?.common
                 ) ? (
-                  <LoyaltyIcon
-             
-                    onClick={() =>
-                      dispatch(closeFavourite(country.name.common))
-                    }
+                  <LoyaltyIcon style={{ marginLeft: 'auto', width: '2rem', height: '2rem',  }}
+                  onClick={() => {
+                    dispatch(closeFavourite(country.name.common));
+                    
+                  }}                 
                   />
                 ) : (
-                  <FavoriteIcon 
-                    onClick={() => dispatch(addFavourite(country.name.common))}
+                  <FavoriteIcon style={{ marginLeft: 'auto', width: '2rem', height: '2rem' }}
+                  onClick={() => {
+                    dispatch(addFavouriteHandler(country.name.common));
+                   
+                  }}
                   />
                 )}
+              
             </Card>
           </Col>
         ))}
