@@ -67,7 +67,7 @@ const Countries = () => {
     <>
 
     <Container fluid>
-      <Row className="flex flex-col items-center">
+      <Row className="flex flex-col items-center font-poppins">
     <Form.Control className="w-96 rounded-full py-2 mt-5 mb-5 placeholder:text-stone-600 focus:w-1/2 sm:w-64 focus:outline-none focus:ring focus:ring-zinc-400"  type="text" placeholder="Search..." 
     onChange={searchHandler}/>
     </Row>
@@ -102,9 +102,9 @@ const Countries = () => {
                 </Card.Subtitle>
                 <ListGroup
                   variant="flush"
-                  className="flex-grow-1 justify-content-end"
+                  className="flex-grow-1 justify-content-end text-gray-600"
                 >
-                  <ListGroup.Item>
+                  <ListGroup.Item >
                     <LanguageIcon style={{ width: '16px' }}/>
                     {Object.values(country.languages ?? {}).join(", ")}
                   </ListGroup.Item>
@@ -132,7 +132,6 @@ const Countries = () => {
                   <LoyaltyIcon style={{ marginLeft: 'auto', width: '2rem', height: '2rem',  }}
                   onClick={() => {
                     dispatch(closeFavourite(country.name.common));
-                    
                   }}                 
                   />
                 ) : (

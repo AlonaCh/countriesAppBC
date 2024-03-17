@@ -18,55 +18,23 @@ import Login from "./routes/Login";
 
 // const queryClient = new QueryClient();
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#3f51b5",
-    },
-    secondary: {
-      main: "#f50057",
-    },
-  },
-});
+// const theme = createTheme({
+//   palette: {
+//     primary: {
+//       main: "#3f51b5",
+//     },
+//     secondary: {
+//       main: "#f50057",
+//     },
+//   },
+// });
 
 function App() {
-  // const router = createBrowserRouter([
-  //   {
-  //     path: "/",
-  //     element: <Root />,
-  //     children: [
-  //       {
-  //         path: "/",
-  //         element: <Home />,
-  //       },
-  //       {
-  //         path: "/countries",
-  //         element: <Countries />,
-  //       },
-  //       {
-  //         path: "countries/:single",
-  //         element: <CountriesSingle />,
-  //       },
-  //       {
-  //         path:"/favourites",
-  //         element: <Favourites/>
-  //       },
-  //       {
-  //         path:"/register",
-  //         element: <Register/>
-  //       },
-  //       {
-  //         path:"/login",
-  //         element: <Login/>
-  //       }
-  //     ],
-  //   },
-  // ]);
 
   return (
     <Provider store={store}>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <ThemeProvider theme={theme}>
+      {/* <ThemeProvider theme={theme}> */}
         {/* <RouterProvider router={router}></RouterProvider> */}
         <Router>
           <Routes>
@@ -100,7 +68,7 @@ element={
             </Route>
           </Routes>
         </Router>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </LocalizationProvider>
     </Provider>
   );

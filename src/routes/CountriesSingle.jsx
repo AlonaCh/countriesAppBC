@@ -50,17 +50,11 @@ if(loading){
 
   return (
     <>
-    <Container className="flex flex-col justify-center items-center" >
-      {/* <Row className="m-5">
-        <Col> */}
-        {/* <Image
-thumbnail
-src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt={`${country.name.common}`}
-/> */}
+    <Container className="flex flex-col justify-center items-center font-poppins" >
 <img className="h-96 mt-3 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110" src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt={`${country.name.common}`}/>
   {/* </Col>
   <Col> */}
-  <h2 className="text-center text-5xl mt-2">{country.name.common}</h2>
+  <h2 className="fonttext-center text-5xl mt-2">{country.name.common}</h2>
   <h3 className="text-center text-2xl mt-2 text-zinc-500">{country.capital}</h3>
   {}
    {/*  {!error && weather && (  */}
