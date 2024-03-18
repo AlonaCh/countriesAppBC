@@ -13,8 +13,6 @@
 - Mui
 - Bootstrap
 
- ## Check this app on Netlify
-
 
 ### To run this app on your computer
 

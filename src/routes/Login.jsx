@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth, loginWithEmailAndPassword } from "../auth/firebase";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -55,9 +56,7 @@ const Login = () => {
         
         <div className="text-center text-gray-400">
             Don't have an account?
-            <span className="cursor-pointer font-bold text-black" onClick={()=> navigate("/register")}> Sign up here
-                </span>
-     
+            <span className="cursor-pointer font-bold text-black"><Link to={"/register"}> Sign up here</Link></span>
         </div>
         </div>
        </div>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Link, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {useLocation, useNavigate} from "react-router-dom";
 import { initializeCountries } from "../store/countriesSlice";
 const { VITE_OPENWEATHER_API } = import.meta.env;

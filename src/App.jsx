@@ -1,9 +1,6 @@
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-// import {queryClient} from "@tanstack/react-query";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import Countries from "./routes/Countries";
@@ -27,7 +24,7 @@ function App() {
             <Route path="/" element={<Root/>}>
             <Route index element={<Home />} />
             <Route path="login" element={<Login/>}/>
-            <Route path="register" element={<Register />} />
+           <Route path="register" element={<Register />} />
             <Route 
             path="/countries" 
             element={

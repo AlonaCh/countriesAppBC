@@ -5,7 +5,7 @@ import {  Spinner} from "react-bootstrap";
 
 
 const ProtectedRoute = ({ children }) => {
- const[user,loading,error] = useAuthState(auth);
+ const[user,loading] = useAuthState(auth);
  console.log("user: ", user);
 console.log("children: ", children);
 

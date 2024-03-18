@@ -1,7 +1,7 @@
 
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, addDoc, collection, onSnapshot, doc, setDoc, getDocs, deleteDoc, query, where } from "firebase/firestore";
+import { getFirestore, addDoc, collection, getDocs, deleteDoc, query, where } from "firebase/firestore";
 import { getFavourites } from "../store/favouritesSlice";
 const { VITE_FIREBASE_API } = import.meta.env;
 
