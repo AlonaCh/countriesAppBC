@@ -16,9 +16,9 @@ import { initializeCountries } from "../store/countriesSlice";
 import { addFavourite, closeFavourite } from "../store/favouritesSlice";
 import { getFavouritesFromFirebase } from "../auth/firebase";
 import Form from 'react-bootstrap/Form';
-import AcUnitIcon from '@mui/icons-material/AcUnit';
 import { Link } from "react-router-dom";
 import BackToTop from "../components/BackToTop";
+
 
 
 
@@ -36,16 +36,16 @@ const Countries = () => {
   function searchHandler(event) {
     setSearch(event.target.value.toLowerCase());
   }
-  
 
   function getBorderName(border){
-   return countriesList.find(country => country.cca3 == border).name.common; 
+   const borderCountry = countriesList.find(country => country.cca3 == border)?.name.common; 
+   return borderCountry;
   }
-  
+
   useEffect(() => {
     dispatch(initializeCountries());
-    dispatch(getFavouritesFromFirebase());// Dispatch action to fetch favourites from Firebase
-  }, [dispatch]); // Dependency array: dispatch function
+    dispatch(getFavouritesFromFirebase());
+  }, [dispatch]); 
 
   if (loading) {
     return (
@@ -119,7 +119,7 @@ const Countries = () => {
                   </ListGroup.Item>
                   <ListGroup.Item className="mb-0 p-1">
                     <FlagIcon />
-                   {country.borders && country.borders.length > 0
+                    {country.borders && country.borders.length > 0
                    ? country.borders.map((border)=>getBorderName(border)).join(", ")
                    : ("This country has no borders")}
                   </ListGroup.Item>
@@ -156,3 +156,4 @@ const Countries = () => {
 };
 
 export default Countries;
+

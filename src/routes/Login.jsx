@@ -11,10 +11,8 @@ const Login = () => {
     const navigate = useNavigate();
 
     const login = () => {
-        // Perform login action
         loginWithEmailAndPassword(email, password)
             .then(() => {
-                // Clear email and password fields on success
                 setEmail('');
                 setPassword('');
                 navigate('/countries');

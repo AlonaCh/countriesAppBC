@@ -17,28 +17,6 @@ const Header = () => {
   const [user] = useAuthState(auth);
   const [nameUser, setNameUser] = useState("");
 
-  //real-time listener
-
-//     useEffect(() => {
-//     async function fetchData() {
-//     const querySnapshot = await getDocs(collection(db, 'users'));
-    
-//     if (user) {
-//         querySnapshot.forEach((doc) => {
-//           (doc) => doc.data()
-//             if (doc.uid === user.uid) {
-//               console.log("userName: ", doc.data().name)
-//               setNameUser(doc.data().name);
-//                 // Break the loop since we found the matching user
-//                 return;
-//             }
-//         });
-//     }
-//   }
-
-//   fetchData();
-// },  [user]);
-
 useEffect(() => {    
   const getUserData = async () => 
   {      

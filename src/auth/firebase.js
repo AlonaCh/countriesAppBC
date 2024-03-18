@@ -1,14 +1,12 @@
-// Import the functions you need from the SDKs you need
+
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, addDoc, collection, onSnapshot, doc, setDoc, getDocs, deleteDoc, query, where } from "firebase/firestore";
 import { getFavourites } from "../store/favouritesSlice";
 const { VITE_FIREBASE_API } = import.meta.env;
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 
-// Your web app's Firebase configuration
+
 const firebaseConfig = {
     apiKey: VITE_FIREBASE_API,
     authDomain: "countries-6cd83.firebaseapp.com",
@@ -18,19 +16,17 @@ const firebaseConfig = {
     appId: "1:343811801075:web:4dc2c7502354acdac01c86"
 };
 
-// Initialize Firebase
+
 export const app = initializeApp(firebaseConfig);
 
-//here we get access to the project authentification and database
+
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-//it takes time to gets to the external server, so we export it as a promise. We need async
 const registerWithEmailAndPassword = async (name, email, password) => {
     try {
-        const res = await createUserWithEmailAndPassword(auth, email, password) //it is a google function
+        const res = await createUserWithEmailAndPassword(auth, email, password)
         const user = res.user;
-        //in the collection of users create a new document with the user id, name, email and authProvider
         await addDoc(collection(db, "users"), {
             uid: user.uid,
             name,
@@ -108,7 +104,4 @@ export const getFavouritesFromFirebase = () => async (dispatch) => {
 }
 
 
-// const q = query(collection(db, "users"), where("name", "==", true));
-
-
-export { auth, db, registerWithEmailAndPassword } //we export the function to use it in the component
+export { auth, db, registerWithEmailAndPassword } 

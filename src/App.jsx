@@ -16,26 +16,12 @@ import Favourites from "./routes/favourites";
 import Register from "./routes/Register";
 import Login from "./routes/Login";
 
-// const queryClient = new QueryClient();
-
-// const theme = createTheme({
-//   palette: {
-//     primary: {
-//       main: "#3f51b5",
-//     },
-//     secondary: {
-//       main: "#f50057",
-//     },
-//   },
-// });
 
 function App() {
 
   return (
     <Provider store={store}>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      {/* <ThemeProvider theme={theme}> */}
-        {/* <RouterProvider router={router}></RouterProvider> */}
         <Router>
           <Routes>
             <Route path="/" element={<Root/>}>
@@ -68,7 +54,6 @@ element={
             </Route>
           </Routes>
         </Router>
-      {/* </ThemeProvider> */}
     </LocalizationProvider>
     </Provider>
   );
