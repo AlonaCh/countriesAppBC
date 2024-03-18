@@ -4,7 +4,7 @@
 
 ## What were used:
 
-- React
+- React.js (Vite)
 - React-redux toolkit
 - Firebase
 - Weather api at: https://home.openweathermap.org/users/sign_up
