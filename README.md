@@ -19,3 +19,4 @@
  - npm install
  - npm run dev
 
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=AlonaCh_countriesAppBC)](https://sonarcloud.io/summary/new_code?id=AlonaCh_countriesAppBC)
