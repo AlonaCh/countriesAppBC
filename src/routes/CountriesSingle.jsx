@@ -12,7 +12,6 @@ import { AltRoute } from "@mui/icons-material";
 
 const CountriesSingle = () => {
   const location = useLocation();
-  console.log("location", location);
   const navigate = useNavigate();
   const country = location.state.country;
   console.log("COUNTRY", country);
@@ -38,8 +37,6 @@ useEffect(() =>{
   });
 },[country.capital]);
 
-console.log(weather);
-
 if(loading){
   return(
     <Col className="text-center m-5">
@@ -51,13 +48,13 @@ if(loading){
   return (
     <>
     <Container className="flex flex-col justify-center items-center font-poppins" >
-<img className="h-96 mt-3 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110" src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt={`${country.name.common}`}/>
+<img className="h-96 mt-3 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110" src={`https://source.unsplash.com/featured/1600x900?${country.name.common}`} alt={`${country.name.common}`}/>
   {/* </Col>
   <Col> */}
   <h2 className="fonttext-center text-5xl mt-2">{country.name.common}</h2>
   <h3 className="text-center text-2xl mt-2 text-zinc-500">{country.capital}</h3>
-  {}
-   {/*  {!error && weather && (  */}
+ 
+  {!error && weather && (
    <div className="flex justify-center items-center rounded-md mt-3 mb-4 text-zinc-950 bg-[url('/weatherpic.jpg')] ">
 
    <div className="flex justify-between w-72 h-40 mx-5 items-center ">
@@ -78,6 +75,7 @@ if(loading){
          </div>
          </div>
       </div>
+  )}
     
   {/* )} */}
   {/* </Col>

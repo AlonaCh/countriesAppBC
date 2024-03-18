@@ -25,9 +25,7 @@ import BackToTop from "../components/BackToTop";
 
 const Countries = () => {
   const dispatch = useDispatch();
-
-  //Connect Countries.jsx to store and replace the countriesList and loading with values from redux.
-  //to acces the store
+ 
   const [search, setSearch] = useState("");
 
   const countriesList = useSelector((state)=> state.countries.countries);
@@ -43,6 +41,7 @@ const Countries = () => {
   function getBorderName(border){
    return countriesList.find(country => country.cca3 == border).name.common; 
   }
+  
   useEffect(() => {
     dispatch(initializeCountries());
     dispatch(getFavouritesFromFirebase());// Dispatch action to fetch favourites from Firebase
