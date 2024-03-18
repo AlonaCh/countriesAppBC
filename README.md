@@ -6,6 +6,7 @@
 
 - React.js (Vite)
 - React-redux toolkit
+- React-router
 - Firebase
 - Weather api at: https://home.openweathermap.org/users/sign_up
 - Leaflet map
