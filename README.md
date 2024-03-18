@@ -15,7 +15,7 @@
 - Bootstrap
 
 
-### To run this app on your computer
+### To run this app on your computer you need
 
  - npm install
  - npm run dev
