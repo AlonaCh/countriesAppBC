@@ -1,11 +1,9 @@
 import { useEffect } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import LoyaltyIcon from '@mui/icons-material/Loyalty';
 import LanguageIcon from '@mui/icons-material/Language';
 import PaymentIcon from '@mui/icons-material/Payment';
 import BoyIcon from '@mui/icons-material/Boy';
 import CloseIcon from '@mui/icons-material/Close';
-import FlagIcon from '@mui/icons-material/Flag';
 import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
@@ -34,11 +32,6 @@ const Favourites = () => {
     countriesList = [];
   }
 
-  // function getBorderName(border){
-  //   return countriesList.find(country => country.cca3 == border).name.common;
-     
-  //  }
-  
   useEffect(() => {
     dispatch(initializeCountries());
     dispatch(getFavouritesFromFirebase());
@@ -91,11 +84,6 @@ const Favourites = () => {
                   <BoyIcon/>
                     {country.population.toLocaleString()}
                   </ListGroup.Item>
-                  {/* <ListGroup.Item>
-                   {country.borders && country.borders.length > 0
-                   ? country.borders.map((border)=>getBorderName(border)).join(", ")
-                   : ("This country has no borders")}
-                  </ListGroup.Item> */}
                   
                 </ListGroup>
               </Card.Body>

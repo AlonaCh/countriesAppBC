@@ -15,7 +15,7 @@ export const favouritesSlice = createSlice({
         addFavourite(state, action) {
             if (state.favourites.some((favourite) => favourite === action.payload))
                 state.favourites = [...state.favourites];
-            state.favourites === [...state.favourites, action.payload];
+            state.favourites = [...state.favourites, action.payload];
 
             const user = auth.currentUser;
             if (user) addFavouriteToFirebase(user.uid, action.payload);

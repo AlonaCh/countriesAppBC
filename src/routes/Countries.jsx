@@ -13,12 +13,11 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import { useDispatch, useSelector } from "react-redux";
 import { initializeCountries } from "../store/countriesSlice";
-import { closeFavourite } from "../store/favouritesSlice";
+import { addFavourite, closeFavourite } from "../store/favouritesSlice";
 import { getFavouritesFromFirebase } from "../auth/firebase";
 import Form from 'react-bootstrap/Form';
 import { Link } from "react-router-dom";
 import BackToTop from "../components/BackToTop";
-
 
 
 
@@ -63,7 +62,8 @@ const Countries = () => {
   }
 
   return (
-  
+    <>
+
     <Container fluid>
       <Row className="flex flex-col items-center font-poppins">
     <Form.Control className="w-96 rounded-full py-2 mt-5 mb-5 placeholder:text-stone-600 focus:w-1/2 sm:w-64 focus:outline-none focus:ring focus:ring-zinc-400"  type="text" placeholder="Search..." 
@@ -135,7 +135,7 @@ const Countries = () => {
                 ) : (
                   <FavoriteIcon style={{ marginLeft: 'auto', width: '2rem', height: '2rem' }}
                   onClick={() => {
-                    dispatch(addFavouriteHandler(country.name.common));
+                    dispatch(addFavourite(country.name.common));
                    
                   }}
                   />
@@ -148,10 +148,10 @@ const Countries = () => {
       <BackToTop
        />
     </Container>
-  
+   
+    </>
     
   );
 };
 
 export default Countries;
-
