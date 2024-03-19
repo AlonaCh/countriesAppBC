@@ -9,7 +9,7 @@ import Home from "./routes/Home";
 import Root from "./routes/Root";
 import store from "./store/store";
 import { Provider } from "react-redux";
-import Favourites from "./routes/favourites";
+import Favourites from "./routes/Favourites";
 import Register from "./routes/Register";
 import Login from "./routes/Login";
 
