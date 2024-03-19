@@ -14,6 +14,8 @@
 - Mui
 - Bootstrap
 
+### Check on Netlify
+https://scintillating-bonbon-f0b58b.netlify.app/
 
 ### To run this app on your computer you need
 
