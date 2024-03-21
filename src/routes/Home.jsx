@@ -6,7 +6,7 @@ import world from "../assets/world.jpg";
 const Home = () => {
 
   return (
-    <div className="flex flex-col justify-center items-center  font-poppins">
+    <div className="flex flex-col justify-center items-center  font-poppins ">
     
       <img className="object-cover w-screen mb-10" src={world} alt={`world`}/>
     

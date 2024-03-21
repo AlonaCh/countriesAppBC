@@ -23,3 +23,4 @@ function Map({ country }) {
 }
 
 export default Map;
+
