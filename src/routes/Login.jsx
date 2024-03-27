@@ -36,7 +36,7 @@ const Login = () => {
         className="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"
         type="email"
         value={email}
-        placeholder="Enter full name" 
+        placeholder="Enter email" 
         onChange={
             (e) => setEmail(e.target.value)
         } />
