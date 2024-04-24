@@ -10,9 +10,11 @@ import {db, auth} from "../auth/firebase";
 import { collection, where, query, getDocs} from "firebase/firestore";
 import { useEffect, useState } from "react";
 import FaceIcon from '@mui/icons-material/Face';
+import { useNavigate } from 'react-router-dom';
 
 
 const Header = () => {
+  const navigate = useNavigate();
   const [user] = useAuthState(auth);
   const [nameUser, setNameUser] = useState("");
 
@@ -73,9 +75,11 @@ if (user) {
                 )}
                
               </Nav>
+              {user && (
               <Button className="btnHeader uppercase" variant="contained">
               {nameUser && (<span><FaceIcon /> {nameUser}</span>)}
               </Button>
+              )}
               </div>
             </Navbar.Collapse>
            
