@@ -11,14 +11,25 @@ const Register = () => {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
  
+  // const register = () => {
+  //   if (!name) alert("Please enter your name");
+  //   registerWithEmailAndPassword(name, email, password);
+  // };
   const register = () => {
-    if (!name) alert("Please enter your name");
-    registerWithEmailAndPassword(name, email, password);
+    if (!name || !email || !password) {
+      alert("Please enter your name, email, and password");
+      return;
+    }
+    registerWithEmailAndPassword(name, email, password)
+      .then(() => navigate("/"))
+      .catch((error) => {
+        console.error("Registration failed:", error);
+        alert("Registration failed. Please try again.");
+      });
   };
 
   useEffect(() => {
     if (loading) return;
-    if (user) console.log("User info:", user)
     if (user) navigate("/countries");
   }, [user, loading]);
 
