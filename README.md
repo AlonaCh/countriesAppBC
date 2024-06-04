@@ -14,7 +14,7 @@
 - Mui
 - Bootstrap
 
-### Check on Netlify
+### Check this app on Netlify
 https://flourishing-puffpuff-09f5ad.netlify.app
 
 
