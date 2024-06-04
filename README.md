@@ -22,6 +22,6 @@ https://flourishing-puffpuff-09f5ad.netlify.app
 
  - npm install
  - npm run dev
- - openweathermap API key and firebase API key are needed
+ - openWeatherMap API key and firebase API key are needed
 
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=AlonaCh_countriesAppBC)](https://sonarcloud.io/summary/new_code?id=AlonaCh_countriesAppBC)
